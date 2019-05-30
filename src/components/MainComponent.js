@@ -7,6 +7,7 @@ import { DISHES } from '../shared/dishes';
 
 class Main extends Component {
     constructor(props) {
+        
         super(props);
         this.state = {
             dishes: DISHES,
@@ -20,7 +21,7 @@ class Main extends Component {
     }
 
     render() {
-        
+
         return (
             <div>
                 <Navbar dark color="primary">
