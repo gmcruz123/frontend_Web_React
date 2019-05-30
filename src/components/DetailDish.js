@@ -2,15 +2,26 @@ import React from "react";
 import { Card, CardBody, CardTitle, CardImg } from "reactstrap";
 
 function RenderComments({ comments }) {
-    
-    return (
-        <div className="col">
-            <ul className="list-unstyled">
-                <li>{comments.label}</li>
-                <li>{comments.description}</li>
-            </ul>
-        </div>);
 
+    return (
+        <ul className="list-unstyled">
+            <li>{comments.label}</li>
+            <li>{comments.description}</li>
+        </ul>
+    );
+
+}
+
+function RenderDish({ dish }) {
+    return (
+
+        <Card key={dish.id}>
+            <CardImg src={dish.image} />
+            <CardBody>
+                <CardTitle></CardTitle>
+            </CardBody>
+        </Card>
+    )
 }
 
 const Detail = (props) => {
@@ -19,14 +30,11 @@ const Detail = (props) => {
         <div className='container'>
             <div className='row mt-5'>
                 <div className="col">
-                    <Card key={props.dish.id}>
-                        <CardImg src={props.dish.image} />
-                        <CardBody>
-                            <CardTitle></CardTitle>
-                        </CardBody>
-                    </Card>
+                    <RenderDish dish={props.dish}/>
                 </div>
-                <RenderComments comments={props.dish}/>
+                <div className='col'>
+                    <RenderComments comments={props.dish} />
+                </div>
             </div>
 
         </div>
